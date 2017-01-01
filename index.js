@@ -1,10 +1,8 @@
-import jsonfile from "jsonfile";
 import moment from "moment";
 import simpleGit from "simple-git";
 import random from "random";
 
 const git = simpleGit();
-const path = "./data.json";
 
 const makeCommits = async (n) => {
   for (let i = 0; i < n; i++) {
@@ -18,10 +16,10 @@ const makeCommits = async (n) => {
       .add(y, "d")
       .format();
 
-    await jsonfile.writeFile(path, { date });
-
-    await git.add([path]);
-    await git.commit(date, { "--date": date });
+    await git.commit("fun commit", {
+      "--allow-empty": null,
+      "--date": date,
+    });
 
     console.log(`Commit ${i + 1}`);
   }
