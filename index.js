@@ -10,7 +10,7 @@ const makeCommits = async (n) => {
     const y = random.int(0, 6);
 
     const date = moment()
-      .subtract(9, "y")
+      .subtract(7, "y")
       .add(1, "d")
       .add(x, "w")
       .add(y, "d")
@@ -27,4 +27,4 @@ const makeCommits = async (n) => {
   await git.push();
 };
 
-makeCommits(5000);
+makeCommits(1000);
